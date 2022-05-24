@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Restaurant.Data\Restaurant.Data.csproj" />
+    <ProjectReference Include="..\Restaurant.Domain\Restaurant.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

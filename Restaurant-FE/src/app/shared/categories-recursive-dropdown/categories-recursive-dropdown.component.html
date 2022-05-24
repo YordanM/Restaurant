@@ -1,0 +1,10 @@
+<li class="list-group-item" *ngFor="let subcategory of categories">
+    <div class="category-header d-flex align-items-center">
+        <a role="button" data-bs-toggle="collapse" data-bs-target="#subcategory" class="category-header-link flex-fill">
+            {{ subcategory.name }}
+        </a>
+    </div>
+    <div id="subcategory" *ngIf="subcategory.subcategories.length > 0">
+        <app-categories-recursive-dropdown [categories]="subcategory.subcategories"></app-categories-recursive-dropdown>
+    </div>
+</li>
