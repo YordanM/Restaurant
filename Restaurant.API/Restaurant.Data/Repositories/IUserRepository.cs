@@ -17,6 +17,6 @@ namespace Restaurant.Data.Repositories
 
         Task<User> UpdateUserAsync(string id, User user, string password, string role);
 
-        Task DeleteUserAsync(string id);
+        Task DeleteUserAsync(User user);
     }
 }

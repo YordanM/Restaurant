@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Restaurant.API.Models;
-using Restaurant.Data;
 using Restaurant.Domain.Models;
 using System;
 using System.Collections.Generic;

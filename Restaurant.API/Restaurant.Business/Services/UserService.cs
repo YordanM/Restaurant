@@ -38,9 +38,16 @@ namespace Restaurant.Business.Services
             return user;
         }
 
-        public Task DeleteUserAsync(string id)
+        public async Task DeleteUserAsync(string id)
         {
-            return _userRepository.DeleteUserAsync(id);
+            var user = await _userRepository.GetUserByIdAsync(id);
+
+            if (user == null)
+            {
+                throw new Exception("User not found.");
+            }
+
+            await _userRepository.DeleteUserAsync(user);
         }
 
         public async Task<(int count, IEnumerable<User> users)> GetAllAsync(PaggingParameters userParameters,

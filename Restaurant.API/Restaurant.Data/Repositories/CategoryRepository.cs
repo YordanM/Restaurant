@@ -37,6 +37,7 @@ namespace Restaurant.Data.Repositories
 
             var result = all.OrderBy(c => c.Name);
 
+
             return (listCount, result);
         }
 

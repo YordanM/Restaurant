@@ -20,7 +20,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this._categoriesService.getAllCategories().subscribe(response => {
-      this.categories = response;
+      this.categories = response.filter(c => c.parentId === null);
       console.log(this.categories);
       this.isLoading = false;
     });
@@ -34,7 +34,7 @@ export class CategoriesComponent implements OnInit {
     this._categoriesService.deleteCategory(id).subscribe(response => {
       this.isLoading = true;
       this._categoriesService.getAllCategories().subscribe(response => {
-        this.categories = response;
+        this.categories = response.filter(c => c.parentId === null);
         console.log(this.categories);
         this.isLoading = false;
       });

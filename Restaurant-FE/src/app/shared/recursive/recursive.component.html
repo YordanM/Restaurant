@@ -1,5 +1,5 @@
 <li class="list-group-item" *ngFor="let subcategory of categories">
-    <div class="category-header d-flex align-items-center">
+    <!-- <div class="category-header d-flex align-items-center">
         <a role="button" data-bs-toggle="collapse" data-bs-target="#subcategory" class="category-header-link flex-fill">
             {{ subcategory.name }}
         </a>
@@ -12,8 +12,25 @@
                 <li><a style="cursor: pointer;" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDeleteCategory(subcategory.id)">Delete</a></li>
             </ul>
         </div>
+    </div> -->
+
+    <div class="category-header d-flex align-items-center collapsed show">
+        <a role="button" data-bs-toggle="collapse" data-bs-target="#subcategory" class="category-header-link flex-fill">
+            <i class="fas fa-minus"></i>
+            {{ subcategory.name }}
+        </a>
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Actions
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                <li><a style="cursor: pointer;" class="dropdown-item" (click)="onEditCategory(category.id)">Edit</a></li>
+                <li><a style="cursor: pointer;" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDeleteCategory(category.id)">Delete</a></li>
+            </ul>
+        </div>
     </div>
-    <div id="subcategory" *ngIf="subcategory.subcategories.length > 0">
-        <app-recursive [categories]="subcategory.subcategories"></app-recursive>
-    </div>
+
+    <ul class="list-group list-group-flush collapse show" id="subcategories">
+        <app-recursive [categories]="subcategory.subCategories"></app-recursive>
+    </ul>
 </li>

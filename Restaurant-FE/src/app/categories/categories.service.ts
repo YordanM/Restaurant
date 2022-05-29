@@ -5,6 +5,7 @@ import { environment } from './../../environments/environment';
 
 export interface GetCategoriesResponseData {
   id: string,
+  parentId: string,
   name: string,
   subcategories: Category[];
 }

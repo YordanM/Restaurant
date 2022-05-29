@@ -26,13 +26,13 @@
                     <div class="col">
                         <label for="category-filter" class="form-label">Category</label>
                         <select
-                    class="form-select" 
-                    id="categoryFilter"
-                    formControlName="categoryFilter"
-                    required
-                    onmousedown="if(this.options.length>10){this.size=10;}"
-                    onchange='this.size=0;' 
-                    onblur="this.size=0;">
+                        class="form-select" 
+                        id="categoryFilter"
+                        formControlName="categoryFilter"
+                        required
+                        onmousedown="if(this.options.length>10){this.size=10;}"
+                        onchange='this.size=0;' 
+                        onblur="this.size=0;">
                         <option value="All">All</option>
                         <ng-container>
                             <ng-template #recursiveList let-categories>
@@ -41,7 +41,7 @@
                                 </ng-container>
                             </ng-template>
                             <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: categories }"></ng-container>
-                    </ng-container>
+                        </ng-container>
                     </select>
                     </div>
                     <div class="col">

@@ -32,13 +32,10 @@ namespace Restaurant.Data.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteUserAsync(string id)
-        {
-            var user = await GetUserByIdAsync(id);
-            if (user != null)
-            {
-                _dbContext.Remove(user);
-            }
+        public async Task DeleteUserAsync(User user)
+        {   
+            _dbContext.Remove(user);
+            
             await _dbContext.SaveChangesAsync();
         }
 

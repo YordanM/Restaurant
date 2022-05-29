@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoriesService } from 'src/app/categories/categories.service';
 
 export class Category {
   id: string;
   name: string;
-  subCategories: Category[];
+  parentId: string;
+  subcategories: Category[];
 }
 
 @Component({
@@ -13,9 +15,9 @@ export class Category {
   styleUrls: ['./recursive.component.css']
 })
 export class RecursiveComponent implements OnInit {
-  @Input() categories: Category;
+  @Input() categories: Category[];
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private _categoriesService: CategoriesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.categories);
@@ -25,4 +27,12 @@ export class RecursiveComponent implements OnInit {
     this.router.navigate(['edit', id], {relativeTo: this.route});
   }
 
+  onDeleteCategory(id: string){
+    this._categoriesService.deleteCategory(id).subscribe(response => {
+      this.router.navigate(['/categories'])
+      .then(() => {
+      window.location.reload();
+      });
+    });
+  }
 }

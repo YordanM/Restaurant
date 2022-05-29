@@ -16,7 +16,7 @@
 
             <div class="card categories" *ngIf="!isLoading">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" *ngFor="let category of categories ">
+                    <li class="list-group-item" *ngFor="let category of categories">
                         <div *ngIf="category.parentId === null" class="category-header d-flex align-items-center collapsed show">
                             <a role="button" data-bs-toggle="collapse" href="#subcategories" class="category-header-link flex-fill">
                                 <i class="fas fa-minus"></i>
